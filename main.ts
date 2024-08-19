@@ -9,14 +9,20 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile1`, function (sprite, l
 })
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     if (DLJ.vy == 0) {
-        DLJ.vy = -100
+        DLJ.vy = -115
     }
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile3`, function (sprite, location) {
-    info.changeLifeBy(-1)
+	
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile2`, function (sprite, location) {
     info.changeLifeBy(-1)
+})
+info.onScore(3, function () {
+    info.changeLifeBy(1)
+})
+sprites.onOverlap(SpriteKind.gem, SpriteKind.Player, function (sprite, otherSprite) {
+    info.changeScoreBy(1)
 })
 let gem: Sprite = null
 let DLJ: Sprite = null
@@ -164,6 +170,7 @@ scene.setBackgroundImage(img`
     `)
 tiles.setCurrentTilemap(tilemap`level2`)
 scene.cameraFollowSprite(DLJ)
+tiles.placeOnRandomTile(DLJ, assets.tile`myTile`)
 info.setLife(3)
 animation.runImageAnimation(
 DLJ,
