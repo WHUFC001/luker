@@ -18,6 +18,9 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile3`, function (sprite, l
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile2`, function (sprite, location) {
     info.changeLifeBy(-1)
 })
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile5`, function (sprite, location) {
+    DLJ.vy = -300
+})
 info.onScore(3, function () {
     info.changeLifeBy(1)
 })
