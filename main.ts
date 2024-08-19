@@ -21,6 +21,9 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile2`, function (sprite, l
 info.onScore(3, function () {
     info.changeLifeBy(1)
 })
+info.onLifeZero(function () {
+    game.gameOver(false)
+})
 sprites.onOverlap(SpriteKind.gem, SpriteKind.Player, function (sprite, otherSprite) {
     info.changeScoreBy(1)
 })
